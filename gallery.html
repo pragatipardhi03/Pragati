@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Football Club</title>
+    <link rel="stylesheet" href="../pages/css/gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- <link rel="stylesheet" href="../pages/css/index.css">ml -->
+</head>
+<body>
+
+    <!-- Navbar start -->
+  <nav class="navbar navbar-expand-lg custom-navbar" id="navbar">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <!-- Left side: Logo + Brand -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html" id="alata-regular">
+        <div id="navbar-logo" class="me-2">
+          <img src="images/logo2.png" alt="logo" height="40">
+        </div>
+        <span id="brand-text">𝐈𝐦𝐦𝐨𝐫𝐭𝐚𝐥 𝐖𝐚𝐫𝐫𝐢𝐨𝐫𝐬 𝐅𝐂</span>
+      </a>
+
+      <!-- Toggle button for mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Right side: Menu -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto" style="gap:30px">
+          <li class="nav-item"><a class="nav-link" href="index.html">𝐇𝐨𝐦𝐞</a></li>
+          <li class="nav-item"><a class="nav-link" href="html/about.html">𝐀𝐛𝐨𝐮𝐭𝐔𝐬</a></li>
+          <li class="nav-item"><a class="nav-link" href="html/contact.html">𝐂𝐨𝐧𝐭𝐚𝐜𝐭𝐔𝐬</a></li>
+          <li class="nav-item"   data-bs-toggle="dropdown"><a class="nav-link" href="html/matches.html" >
+            𝐎𝐭𝐡𝐞𝐫
+            <i class="fa fa-chevron-circle-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Players</a></li>
+        <li><a class="dropdown-item" href="#">Gallery</a></li>
+        <li  data-bs-toggle="dropdown">
+          <a class="dropdown-item" href="#" >News
+            <i class="fa fa-chevron-circle-right"></i>
+          </a>
+
+          <ul class="dropdown-menu">
+           <li><a class="dropdown-item" href="#">Latest</a></li>
+           <li><a class="dropdown-item" href="#">Old</a></li>
+         </ul>
+        </li>
+        <li><hr class="dropdown-divider">Other's link</hr></li>
+
+      </ul>
+      </li>
+      <li class="nav-item dropdown">
+  <a class="nav-link" href="#" id="profileDropdown" data-bs-toggle="modal" data-bs-target="#profileModal">
+    <i class="fa fa-user-circle fa-lg"></i>
+    <p id="username"></p>
+  </a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!-- Navbar end -->
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="overlay">
+            <h1 >Gallery...</h1>
+            <h3>Relive the best moments from our matches and events.</h3>
+        </div>
+    </header>
+
+
+    <!-- Gallery Filters -->
+    
+    <section class="container mt-5 text-center changeFont">
+        <h1>Photo & Video Gallery</h1>
+        <div class="btn-group gallery-filters">
+            <button class="btn btn-dark filter-btn" data-filter="all">All</button>
+            <button class="btn btn-dark filter-btn" data-filter="photos">Photos</button>
+            <button class="btn btn-dark filter-btn" data-filter="videos">Videos</button>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="container mt-4 ">
+        <div class="row gallery-container ">
+            <!-- Photo Items -->
+            <div class="col-md-4 gallery-item photos">
+                <div class="gallery-card animate__animated animate__flipInY">
+                    <img src="../images/27.jpg" alt="Match 1">
+                    <div class="gallery-info">
+                        <h5>Matchday Action</h5>
+                        <p>Amazing goal moments</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item photos">
+                <div class="gallery-card animate__animated animate__flipInY">
+                    <img src="../images/24.jpg" alt="Training">
+                    <div class="gallery-info">
+                        <h5>Training Sessions</h5>
+                        <p>Our team in action during practice</p>
+                    </div>
+                </div>
+            </div>
+               <div class="col-md-4 gallery-item photos">
+                <div class="gallery-card animate__animated animate__flipInY">
+                    <img src="../images/25.jpg" alt="Training">
+                    <div class="gallery-info">
+                        <h5>Training Sessions</h5>
+                        <p>Our team pic after practice</p>
+                    </div>
+                </div>
+            </div>
+               <div class="col-md-4 gallery-item photos">
+                <div class="gallery-card animate__animated animate__flipInY">
+                    <img src="../images/7.jpg" alt="Training">
+                    <div class="gallery-info">
+                        <h5>Training Sessions</h5>
+                        <p>Our team match pic</p>
+                    </div>
+                </div>
+            </div>
+               <div class="col-md-4 gallery-item photos">
+                <div class="gallery-card animate__animated animate__flipInY">
+                    <img src="../images/6.jpg" alt="Training">
+                    <div class="gallery-info">
+                        <h5>Training Sessions</h5>
+                        <p>Our team match moment pic</p>
+                    </div>
+                </div>
+            </div>
+               <div class="col-md-4 gallery-item photos">
+                <div class="gallery-card animate__animated animate__flipInY">
+                    <img src="../images/10.jpg" alt="Training">
+                    <div class="gallery-info">
+                        <h5>Training Sessions</h5>
+                        <p>Our team in action during practice</p>
+                    </div>
+                </div>
+            </div>
+               <div class="col-md-4 gallery-item photos">
+                <div class="gallery-card animate__animated animate__flipInY">
+                    <img src="../images/5.jpg" alt="Training">
+                    <div class="gallery-info">
+                        <h5>Training Sessions</h5>
+                        <p>Our team in action during practice</p>
+                    </div>
+                </div>
+            </div>
+               <div class="col-md-4 gallery-item photos">
+                <div class="gallery-card animate__animated animate__flipInY">
+                    <img src="../images/11.jpg" alt="Training">
+                    <div class="gallery-info">
+                        <h5>Training Sessions</h5>
+                        <p>Our team in action during practice</p>
+                    </div>
+                </div>
+            </div>
+               <div class="col-md-4 gallery-item photos">
+                <div class="gallery-card animate__animated animate__flipInY">
+                    <img src="../images/28.jpg" alt="Training">
+                    <div class="gallery-info">
+                        <h5>Training Sessions</h5>
+                        <p>Our team in action during practice</p>
+                    </div>
+                </div>
+            </div>
+               <div class="col-md-4 gallery-item photos">
+                <div class="gallery-card animate__animated animate__flipInY">
+                    <img src="../images/26.jpg" alt="Training">
+                    <div class="gallery-info">
+                        <h5>Training Sessions</h5>
+                        <p>Our team in action during practice</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Items -->
+            <div class="col-md-4 gallery-item videos">
+                <div class="gallery-card animate__animated animate__flipInY">
+                    <img src="../swim.jpg" alt="img">
+                    <div class="gallery-info">
+                        <h5>Fun day at Lake side</h5>
+                        <p>Best moments from the game</p>
+                        <a href="https://youtu.be/M32FbLj5qyA?si=CN1eJRCVQ35cWpRe" target="_blank">
+                            <button class="btn btn-danger">play</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+                 <div class="col-md-4 gallery-item videos">
+                <div class="gallery-card animate__animated animate__flipInY">
+                    <img src="../match.jpg" alt="img">
+                    <div class="gallery-info">
+                        <h5>Match Moments</h5>
+                        <p>Best moments from the game</p>
+                        <a href="https://youtu.be/zMWabG7DYTU?si=RSn2jBlGwhyghTGC" target="_blank">
+                             <button class="btn btn-danger">play</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+                 <div class="col-md-4 gallery-item videos">
+                <div class="gallery-card animate__animated animate__flipInY">
+                    <img src="../match2.jpg" alt="img">
+                    <div class="gallery-info">
+                        <h5>Match Moments</h5>
+                        <p>Best moments from the game</p>
+                        <a href="https://youtube.com/shorts/YsKapzESBE8?si=gVLOxpQwOBts6A-v" target="_blank">
+                             <button class="btn btn-danger">play</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3 mt-5">
+        <p>&copy; 2025 Football Club. All Rights Reserved.</p>
+        <p>Follow us on:
+            <a href="#" class="text-white">Facebook</a> |
+            <a href="#" class="text-white">Twitter</a> |
+            <a href="#" class="text-white">Instagram</a>
+        </p>
+    </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../pages/js/gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Immortal Warriors FC – Secure Membership</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1f2937 0%, #3b82f6 100%);
+            min-height: 100vh;
+        }
+        .form-container {
+            background: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            max-width: 800px;
+            width: 95%;
+            margin: 2rem auto;
+            animation: fadeInDown 1.2s ease-out;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .btn-animated {
+            background: linear-gradient(90deg, #3b82f6, #6366f1);
+            transition: background 0.4s, transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-animated:hover {
+            background: linear-gradient(90deg, #6366f1, #3b82f6);
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+        }
+        .input-group-text {
+            background-color: #f3f4f6;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2 class="text-center text-3xl font-bold mb-6 text-gray-800">
+            <i class="fas fa-id-card-clip mr-2 text-blue-500"></i> Club Membership Registration
+        </h2>
+
+        <!-- Notification Messages -->
+        <div id="messageArea" class="mb-4 hidden p-3 rounded-lg text-sm font-medium transition duration-300"></div>
+
+        <form id="memberForm" enctype="multipart/form-data">
+            <!-- Step 1: Membership Details -->
+            <div id="step1">
+                <p class="text-lg font-semibold mb-4 text-gray-700">Step 1: Fill Membership Details</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <!-- Membership category radios -->
+                    <div class="col-span-2 mb-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Membership Category:</label>
+                        <div class="flex flex-wrap gap-x-4 gap-y-2">
+                            <label><input class="form-check-input mr-1" type="radio" name="category" value="School" required>School</label>
+                            <label><input class="form-check-input mr-1" type="radio" name="category" value="College">College</label>
+                            <label><input class="form-check-input mr-1" type="radio" name="category" value="Unit Club">Unit Club</label>
+                            <label><input class="form-check-input mr-1" type="radio" name="category" value="Player">Player</label>
+                            <label><input class="form-check-input mr-1" type="radio" name="category" value="Member">Member</label>
+                            <label><input class="form-check-input mr-1" type="radio" name="category" value="Coach">Coach</label>
+                            <label><input class="form-check-input mr-1" type="radio" name="category" value="Sponsor">Sponsor</label>
+                            <label><input class="form-check-input mr-1" type="radio" name="category" value="Association">Association</label>
+                        </div>
+                    </div>
+
+                    <!-- Various inputs as per your given HTML, no change -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Institution/Individual Name:</label>
+                        <input type="text" name="institution_name" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Contact Person (if Institution):</label>
+                        <input type="text" name="contact_person" class="w-full p-2 border border-gray-300 rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Date of Birth (if Individual):</label>
+                        <input type="date" name="dob" class="w-full p-2 border border-gray-300 rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Guardian Name (if minor):</label>
+                        <input type="text" name="guardian_name" class="w-full p-2 border border-gray-300 rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Contact Number:</label>
+                        <input type="tel" name="contact_number" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Email (for OTP/Confirmation):</label>
+                        <input type="email" name="email" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700">Address:</label>
+                        <textarea name="address" class="w-full p-2 border border-gray-300 rounded-lg" rows="2"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">ID Proof/Certificate No.:</label>
+                        <input type="text" name="id_proof" class="w-full p-2 border border-gray-300 rounded-lg">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Membership Fee Paid (INR):</label>
+                        <input type="number" name="membership_fee" class="w-full p-2 border border-gray-300 rounded-lg" required min="0">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Mode of Payment:</label>
+                        <select name="payment_mode" class="w-full p-2 border border-gray-300 rounded-lg">
+                            <option value="Cash">Cash</option>
+                            <option value="Online">Online</option>
+                            <option value="UPI">UPI</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="md:col-span-2 grid md:grid-cols-3 gap-4 border-t pt-4 mt-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Photo (Passport Size):</label>
+                            <input type="file" name="photo" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Certificate/Proof (if required):</label>
+                            <input type="file" name="certificate" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">License (for Coaches/Clubs):</label>
+                            <input type="file" name="license" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <button type="submit" class="btn-animated w-full py-3 text-white font-semibold rounded-lg shadow-lg" id="submitBtn">
+                        <span class="btn-text">Submit Details & Send OTP</span>
+                        <span class="loading-spinner ml-2 hidden"><i class="fas fa-spinner fa-spin"></i></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: OTP Verification -->
+            <div id="otpSection" class="mt-8 mb-5 hidden">
+                <p class="text-lg font-semibold mb-4 text-green-700">Step 2: Verify OTP</p>
+                <div class="flex space-x-4 items-center">
+                    <div class="flex-grow flex rounded-lg shadow-md border border-gray-300">
+                        <span class="input-group-text inline-flex items-center px-4">
+                            <i class="fas fa-shield-alt"></i>
+                        </span>
+                    </div>
+                    <input type="number" class="form-control text-center" id="otpInput" name="otpInput" placeholder="6-Digit OTP" maxlength="6" />
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 font-semibold rounded-lg shadow-md transition duration-200" type="button" id="verifyOtpBtn">
+                        <span class="btn-text">Verify & Finish</span>
+                        <span class="loading-spinner ml-2 hidden"><i class="fas fa-spinner fa-spin"></i></span>
+                    </button>
+                </div>
+                <p class="text-xs text-gray-500 mt-2">Check the email you provided for the verification code.</p>
+            </div>
+        </form>
+
+        <!-- Member List -->
+        <h4 class="text-center mt-12 text-2xl font-bold text-gray-800">Verified Member List</h4>
+        <p class="text-center text-gray-600 mb-4">Real-time listing of successfully registered members.</p>
+        <div class="overflow-x-auto rounded-lg shadow-md">
+            <table class="min-w-full bg-white divide-y divide-gray-200" id="membersTable">
+                <thead class="bg-gray-800 text-white">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">ID</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Category</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Name/Institution</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Contact</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Fee</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Date</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr><td colspan="6" class="p-4 text-center text-gray-500">Loading members...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Message Display Function
+        function showMessage(message, type = "info") {
+            const area = $("#messageArea");
+            area.removeClass(
+                "hidden bg-red-100 text-red-700 bg-green-100 text-green-700 bg-yellow-100 text-yellow-700"
+            ).addClass("block");
+
+            if (type === "success") {
+                area.addClass("bg-green-100 text-green-700 border border-green-300").html(
+                    `<i class="fas fa-check-circle mr-2"></i> ${message}`
+                );
+            } else if (type === "error") {
+                area.addClass("bg-red-100 text-red-700 border border-red-300").html(
+                    `<i class="fas fa-exclamation-triangle mr-2"></i> ${message}`
+                );
+            } else {
+                area.addClass("bg-yellow-100 text-yellow-700 border border-yellow-300").html(
+                    `<i class="fas fa-info-circle mr-2"></i> ${message}`
+                );
+            }
+        }
+
+        // Loading State Helper
+        function setLoading(btnId, isLoading, defaultText) {
+            const btn = $(btnId);
+            btn.prop("disabled", isLoading);
+            btn.find(".btn-text").text(isLoading ? "Processing..." : defaultText);
+            btn.find(".loading-spinner").toggleClass("hidden", !isLoading);
+        }
+
+        // Step 1: Submit and send OTP
+        $("#memberForm").on("submit", function (e) {
+            e.preventDefault();
+
+            const email = $('input[name="email"]').val().trim();
+            if (!email) {
+                showMessage("Please provide an email address to receive the OTP.", "error");
+                return;
+            }
+
+            setLoading("#submitBtn", true, "Submit Details & Send OTP");
+            showMessage("Uploading files and sending OTP. Please wait...", "info");
+
+            const formData = new FormData(this);
+
+            $.ajax({
+                url: "../pages/php/send_membership_otp.php",
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                dataType: "json",
+                success: function (res) {
+                    if (res.success) {
+                        showMessage(res.message, "success");
+                        $("#step1").addClass("hidden");
+                        $("#otpSection").removeClass("hidden");
+                    } else {
+                        showMessage(res.message, "error");
+                    }
+                    setLoading("#submitBtn", false, "Submit Details & Send OTP");
+                },
+                error: function (xhr) {
+                    showMessage(`Server error (Code ${xhr.status}). Could not send OTP.`, "error");
+                    console.error("AJAX Error:", xhr.responseText);
+                    setLoading("#submitBtn", false, "Submit Details & Send OTP");
+                },
+            });
+        });
+
+        // Step 2: Verify OTP and finalize membership
+        $("#verifyOtpBtn").on("click", function () {
+            const otp = $("#otpInput").val().trim();
+            if (!otp || otp.length !== 6) {
+                showMessage("Please enter the 6-digit OTP.", "error");
+                return;
+            }
+
+            setLoading("#verifyOtpBtn", true, "Verify & Finish");
+
+            $.ajax({
+                url: "../pages/php/verify_membership.php",
+                type: "POST",
+                dataType: "json",
+                data: { otp: otp },
+                success: function (res) {
+                    if (res.success) {
+                        showMessage(res.message, "success");
+                        $("#memberForm")[0].reset();
+                        $("#otpSection").addClass("hidden");
+                        $("#step1").removeClass("hidden");
+                        loadMembers();
+                    } else {
+                        showMessage(res.message, "error");
+                    }
+                    setLoading("#verifyOtpBtn", false, "Verify & Finish");
+                },
+                error: function (xhr) {
+                    showMessage("Error verifying OTP. Check PHP script and session status.", "error");
+                    console.error("AJAX Error:", xhr.responseText);
+                    setLoading("#verifyOtpBtn", false, "Verify & Finish");
+                },
+            });
+        });
+
+        // Load Members List
+        function loadMembers() {
+            $.ajax({
+                url: "../pages/php/get_members.php",
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    let tableHtml = "";
+                    if (data && data.length > 0) {
+                        data.forEach((member) => {
+                            const nameDisplay = member.institution_name || member.contact_person || member.email;
+                            tableHtml += `<tr class="hover:bg-gray-50 transition duration-150">
+                                <td class="px-6 py-4 whitespace-nowrap">${member.id}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">${member.category}</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-medium">${nameDisplay}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">${member.contact_number}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">₹${member.membership_fee}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${member.apply_date}</td>
+                            </tr>`;
+                        });
+                    } else {
+                        tableHtml =
+                            '<tr><td colspan="6" class="p-4 text-center text-gray-500">No verified members found yet.</td></tr>';
+                    }
+                    $("#membersTable tbody").html(tableHtml);
+                },
+                error: function () {
+                    $("#membersTable tbody").html(
+                        '<tr><td colspan="6" class="p-4 text-center text-red-500">Error loading member data.</td></tr>'
+                    );
+                },
+            });
+        }
+
+        // Initial load
+        $(document).ready(function () {
+            loadMembers();
+        });
+    </script>
+</body>
+</html>

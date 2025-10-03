@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Immortal Warriors FC – Event Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+        rel="stylesheet"/>
+    <link 
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" 
+        rel="stylesheet" />
+    <style>
+      body {background: linear-gradient(135deg,#3a8dde 38%,#a448e5 100%); min-height: 100vh; font-family:'Segoe UI',sans-serif; padding: 0;}
+      .event-form-container {
+          background: #fff; padding: 2rem; border-radius: 18px; margin: 2.5rem auto 1.5rem; max-width:700px;
+          box-shadow: 0 8px 32px rgba(52, 152, 219, 0.24); animation: fadeInUp 1.1s;
+      }
+      input[type=radio][name=event_category] {
+          position: absolute; opacity: 0; width: 0; height: 0; margin: 0; padding: 0;
+      }
+      input[type=radio][name=event_category] + .event-badge { cursor: pointer; }
+      input[type=radio][name=event_category]:checked + .event-badge {
+          background: #a448e5 !important; color: #fff !important; font-weight: 600; border: 1px solid #3a8dde;
+      }
+      .form-label { color: #a448e5; font-weight: 500; }
+      .event-badge {
+          font-size: 1rem;
+          background: #f8f7fa;
+          color: #a448e5;
+          padding: 0.4em 1em;
+          border-radius: 50px;
+          margin-right: 0.5em;
+          border: 1px solid #e0daf4;
+          transition: background 0.2s,color 0.2s;
+      }
+      #otpSection { display: none; margin-top: 30px;}
+      .otp-box input[type="text"] {
+          width: 140px; font-size: 1.4rem; letter-spacing: 0.3em; text-align: center;
+          background: #f8f7fa; color: #a448e5; border: 2px solid #e0daf4; border-radius: 6px; height: 50px;
+      }
+      @media(max-width:800px) { .event-form-container { padding: 1rem; } }
+      @media(max-width:490px) { h2 { font-size: 1.13rem; } .otp-box input[type='text'] {width: 90px; font-size: 1.1rem;} }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="event-form-container animate__animated animate__fadeInDown">
+      <h2 class="text-center mb-3" style="color:#a448e5;">Event Registration</h2>
+
+      <form id="eventForm" enctype="multipart/form-data" autocomplete="off">
+        <!-- Event Category -->
+        <div class="mb-2">
+          <label class="form-label d-block">Event Category <span style="color:#e74c3c">*</span></label>
+          <div class="d-flex flex-wrap gap-2">
+            <label>
+              <input type="radio" name="event_category" value="Tournament" required />
+              <span class="event-badge">Tournament</span>
+            </label>
+            <label>
+              <input type="radio" name="event_category" value="Trial" />
+              <span class="event-badge">Trial</span>
+            </label>
+            <label>
+              <input type="radio" name="event_category" value="Camp" />
+              <span class="event-badge">Camp</span>
+            </label>
+            <label>
+              <input type="radio" name="event_category" value="Workshop & Seminar" />
+              <span class="event-badge">Workshop & Seminar</span>
+            </label>
+            <label>
+              <input type="radio" name="event_category" value="Private Trial & Camp" />
+              <span class="event-badge">Private Trial & Camp</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Other inputs like fullname, dob, etc. (same as previously provided) -->
+        <!-- abbreviated here for brevity -->
+
+        <div class="row g-3 mt-2">
+          <div class="col-md-6">
+            <label class="form-label">Full Name<span style="color:#e74c3c">*</span></label>
+            <input type="text" name="fullname" class="form-control" required />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Date of Birth / Age<span style="color:#e74c3c">*</span></label>
+            <input type="date" name="dob" class="form-control" required />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Category<span style="color:#e74c3c">*</span></label>
+            <select name="age_category" class="form-control" required>
+              <option value="">Select</option>
+              <option value="U-10">U-10</option>
+              <option value="U-13">U-13</option>
+              <option value="U-15">U-15</option>
+              <option value="U-18">U-18</option>
+              <option value="Open">Open</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Father’s / Mother’s Name<span style="color:#e74c3c">*</span></label>
+            <input type="text" name="parent_name" class="form-control" required />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Contact Number<span style="color:#e74c3c">*</span></label>
+            <input type="text" name="contact" class="form-control" required pattern="[0-9]{10,}" />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Email<span style="color:#e74c3c">*</span></label>
+            <input type="email" name="email" class="form-control" required />
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Address<span style="color:#e74c3c">*</span></label>
+            <textarea name="address" class="form-control" required></textarea>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">School/College/Club (if any)</label>
+            <input type="text" name="affiliation" class="form-control" />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Playing Position (for players)</label>
+            <input type="text" name="playing_position" class="form-control" />
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Document: Age Proof<span style="color:#e74c3c">*</span></label>
+            <input type="file" name="age_proof" class="form-control" required />
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Document: Photo<span style="color:#e74c3c">*</span></label>
+            <input type="file" name="photo" class="form-control" required />
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Medical Fitness Certificate</label>
+            <input type="file" name="fitness" class="form-control" />
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Document: ID Proof (Aadhaar/School ID/Birth Certificate)<span style="color:#e74c3c">*</span></label>
+            <input type="file" name="id_proof" class="form-control" required />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Registration Fee Paid<span style="color:#e74c3c">*</span></label>
+            <input type="number" name="fee" class="form-control" required min="1" />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Date<span style="color:#e74c3c">*</span></label>
+            <input type="date" name="apply_date" class="form-control" required />
+          </div>
+        </div>
+
+        <div class="d-grid mt-4">
+          <button type="submit" id="eventRegisterBtn" class="btn btn-success btn-animated btn-lg animate__animated animate__pulse">
+            Register for Event
+          </button>
+        </div>
+      </form>
+      <div id="event_msg"></div>
+
+      <!-- OTP Verification Section -->
+      <div id="otpSection" class="animate__animated animate__fadeInUp" style="display:none;">
+        <hr />
+        <h4 class="mb-3" style="color:#a448e5;">OTP Verification</h4>
+        <form id="otpForm" autocomplete="off">
+          <input type="hidden" name="email" id="otpEmail" value="" />
+          <div class="mb-3 otp-box">
+            <label class="form-label">Enter the 6-digit OTP sent to your email:</label><br />
+            <input
+              type="text"
+              name="otp"
+              id="otpInput"
+              maxlength="6"
+              autocomplete="one-time-code"
+              pattern="\d{6}"
+              inputmode="numeric"
+              required
+            />
+          </div>
+          <button type="submit" id="verifyOtpBtn" class="btn btn-primary btn-animated btn-md">Verify OTP</button>
+        </form>
+        <div id="otp_msg" class="mt-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <script>
+    // Badges for radio
+    $(document).on("change", "input[type=radio][name=event_category]", function () {
+      $(".event-badge").removeClass("active");
+      $(this).next(".event-badge").addClass("active");
+    });
+
+    // Register event AJAX
+    $("#eventForm").on("submit", function (e) {
+      e.preventDefault();
+      var formData = new FormData(this);
+      $("#eventRegisterBtn").prop("disabled", true);
+      $("#event_msg").html("");
+      var registeredEmail = ""; 
+      $.ajax({
+        url: "../pages/php/eventsRegistration.php",
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        dataType: "json",
+        success: function (response) {
+          // if (response.status === "success") {
+          //   $("#event_msg").html(
+          //     '<div class="alert alert-success animate__animated animate__fadeInUp">' + response.message + "</div>"
+          //   );
+          //   $("#eventForm")[0].reset();
+          //   $(".event-badge").removeClass("active");
+          //   $("#otpSection").show();
+          //   $("#otpEmail").val($('input[name="email"]').val());
+          //   $("html, body").animate({ scrollTop: $("#otpSection").offset().top - 40 }, 600);
+          // } 
+          if (response.status === "success") {
+    // ... other code
+    
+    // CAPTURE THE EMAIL BEFORE THE FORM RESET
+    registeredEmail = $('input[name="email"]').val(); 
+    
+    $("#eventForm")[0].reset();
+    $(".event-badge").removeClass("active");
+    
+    // USE THE CAPTURED EMAIL TO POPULATE THE HIDDEN FIELD
+    $("#otpEmail").val(registeredEmail); 
+    
+    $("#otpSection").show();
+    // ... other code
+  } 
+          else {
+            $("#event_msg").html(
+              '<div class="alert alert-danger animate__animated animate__fadeInUp">' + response.message + "</div>"
+            );
+            $("#otpSection").hide();
+          }
+          $("#eventRegisterBtn").prop("disabled", false);
+        },
+        error: function () {
+          $("#event_msg").html(
+            '<div class="alert alert-danger animate__animated animate__fadeInUp">Unable to submit form. Please try again later.</div>'
+          );
+          $("#eventRegisterBtn").prop("disabled", false);
+          $("#otpSection").hide();
+        },
+      });
+    });
+
+    // OTP verification AJAX
+    $("#otpForm").on("submit", function (e) {
+      e.preventDefault();
+      var otpVal = $("#otpInput").val().trim();
+      var userEmail = $("#otpEmail").val().trim();
+
+      if (otpVal.length !== 6 || !/^\d{6}$/.test(otpVal)) {
+        $("#otp_msg").html('<div class="alert alert-danger">Please enter a valid 6-digit OTP.</div>');
+        return;
+      }
+      $("#verifyOtpBtn").prop("disabled", true);
+      $("#otp_msg").html("");
+       var userEmail = $("#otpEmail").val().trim();
+      $.ajax({
+        url: "../pages/php/verify_eventsRegistration.php", // This is the file being called
+        type: "POST",
+        data: { otp: otpVal, email: userEmail }, // Data is correctly packaged here
+        dataType: "json",
+        success: function (response) {
+          if (response.status === "success") {
+            $("#otp_msg").html(
+              '<div class="alert alert-success animate__animated animate__fadeInUp">' + response.message + "</div>"
+            );
+            $("#otpForm")[0].reset();
+            setTimeout(() => {
+              location.reload();
+            }, 3500);
+          } else {
+            $("#otp_msg").html(
+              '<div class="alert alert-danger animate__animated animate__fadeInUp">' + response.message + "</div>"
+            );
+          }
+          $("#verifyOtpBtn").prop("disabled", false);
+        },
+        error: function () {
+          $("#otp_msg").html(
+            '<div class="alert alert-danger animate__animated animate__fadeInUp">Could not verify OTP. Please try again.</div>'
+          );
+          $("#verifyOtpBtn").prop("disabled", false);
+        },
+      });
+    });
+  </script>
+</body>
+</html>

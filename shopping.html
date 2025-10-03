@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IMMORTAL WARRIORS FC SHOP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <style>
+    body {
+      background: linear-gradient(120deg, #34495e, #00b894 80%);
+      min-height: 100vh;
+    }
+    .navbar-brand img {
+      height: 40px;
+      margin-right: 12px;
+    }
+    .product-card {
+      border-radius: 15px;
+      box-shadow: 0 4px 16px rgba(44, 62, 80, 0.2);
+      transition: transform .2s;
+      background: #fff;
+      overflow: hidden;
+    }
+    .product-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(60, 127, 193, 0.25);
+    }
+    .product-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #dfe6e9;
+    }
+    .buy-btn {
+      background: #00b894;
+      color: #fff;
+      border-radius: 22px;
+      padding: 6px 18px;
+      transition: background .2s;
+    }
+    .buy-btn:hover {
+      background: #0984e3;
+      color: #fff;
+    }
+    @media (max-width: 576px) {
+      .navbar-brand img { height: 30px; }
+      .product-image { height: 150px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg">
+    <a class="navbar-brand d-flex align-items-center animate__animated animate__bounceInLeft" href="#">
+      <img src="https://i.ibb.co/dB7qz7C/football-logo.png" alt="Club Logo">
+      IMMORTAL WARRIORS FC SHOP
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainMenu">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item mx-2"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="#">Products</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="#">About</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="#">Contact</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h1 class="text-white animate__animated animate__fadeInDown">Explore Our Exclusive Football Gear</h1>
+      <p class="text-light animate__animated animate__fadeInUp">Quality kits, boots, tees, and more for champions</p>
+    </div>
+    <div class="row" id="productList">
+      <!-- Product cards injected here -->
+    </div>
+  </div>
+
+  <!-- JQuery, Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Product Data and Interaction -->
+  <script>
+    // Array of products
+    const products = [
+      {
+        name: 'Official Match Kit',
+        image: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80',
+        price: '₹1599'
+      },
+      {
+        name: 'Training T-Shirt',
+        image: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80',
+        price: '₹899'
+      },
+      {
+        name: 'Pro Football Shoes',
+        image: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=600&q=80',
+        price: '₹2399'
+      },
+      {
+        name: 'Practice Shorts',
+        image: 'https://images.unsplash.com/photo-1555529771-35a38a2188a8?auto=format&fit=crop&w=600&q=80',
+        price: '₹499'
+      },
+      {
+        name: 'Goalkeeper Gloves',
+        image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+        price: '₹799'
+      },
+      {
+        name: 'Club Hoodie',
+        image: 'https://images.unsplash.com/photo-1475189778702-5da2ccf7b0a8?auto=format&fit=crop&w=600&q=80',
+        price: '₹1299'
+      }
+    ];
+
+    // Inject cards into #productList
+    $(document).ready(function() {
+      products.forEach((prod, idx) => {
+        $('#productList').append(`
+          <div class="col-md-4 col-sm-6 my-3">
+            <div class="product-card animate__animated animate__zoomIn" data-name="${prod.name}">
+              <img src="${prod.image}" alt="${prod.name}" class="product-image">
+              <div class="p-3">
+                <h5 class="mb-2">${prod.name}</h5>
+                <div class="mb-2 font-weight-bold" style="color:#00b894">${prod.price}</div>
+                <button class="btn buy-btn w-100"><i class="fa fa-shopping-cart"></i>Available</button>
+                <p class="mt-2 text-muted" style="font-size: 0.9em;">If you want to buy this product than contact our team <b>(+91 00000000)</b></p>
+                </div>
+            </div>
+          </div>
+        `);
+      });
+
+      // Click alert for product name
+      $('.product-card').on('click', function(e) {
+        // To prevent button click from bubbling up twice
+        if($(e.target).hasClass('buy-btn') || $(e.target).hasClass('fa')) {
+          const prod = $(this).data('name');
+          alert('Product Selected: ' + prod);
+        }
+      });
+    });
+
+    // $(".product-card").hover(
+    //   function() {
+    //     $(this).addClass("animate__animated animate__bounce");
+    //     $(this).css("box-shadow", "0 8px 24px rgba(44, 62, 80, 0.25)");
+    //   }, function() {
+    //     $(this).css("transform", "translateY(0) scale(1)");
+    //     $(this).css("box-shadow", "0 4px 16px rgba(44, 62, 80, 0.2)");
+    //   }
+    // );
+  </script>
+</body>
+</html>
